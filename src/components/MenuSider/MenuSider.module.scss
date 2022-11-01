@@ -1,20 +1,11 @@
-.taggedMenuEntry {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  .menuTag {
-    span {
-      padding: 4px 8px;
-      color: white;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 0.75rem;
-    }
-  }
+.menuButton {
+    padding: 0 !important;
+    font-size: medium;
 }
-
+.menuDivider {
+    padding: 0 !important;
+    margin: 0 !important;
+}
 .logo {
   height: 64px;
   position: relative;
@@ -28,6 +19,6 @@
   img {
     display: inline-block;
     vertical-align: middle;
-    height: 39px;
+    height: 49px;
   }
 }

@@ -8,7 +8,7 @@ const AppHeader: React.FC = ({}) => {
     return (
         <Header id="header" className={styles.appHeader}>
             <div className={styles.leftAlign}>
-                <h1>Test</h1>
+                <h1>{'Rick and Morty characters'}</h1>
             </div>
         </Header>
     );
