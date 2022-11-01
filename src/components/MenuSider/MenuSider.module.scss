@@ -1,0 +1,33 @@
+.taggedMenuEntry {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  .menuTag {
+    span {
+      padding: 4px 8px;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.logo {
+  height: 64px;
+  position: relative;
+  line-height: 64px;
+  transition: all 0.3s;
+  overflow: hidden;
+  text-align: center;
+  opacity: 1;
+  margin-bottom: 4px;
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 39px;
+  }
+}

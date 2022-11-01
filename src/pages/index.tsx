@@ -1,7 +1,5 @@
 import { Card, Image, message } from 'antd';
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import styles from '../styles/Home.module.css';
 
 export default function Home() {
     const [data, setData] = useState<any>([]);
@@ -22,12 +20,14 @@ export default function Home() {
     }, []);
     console.log(data);
     return (
-        <div>
-            {data.map((c) => (
-                <Card title={c.name}>
-                    <Image src={c.image} />
-                </Card>
-            ))}
-        </div>
+        <>
+            <div>
+                {data.map((c) => (
+                    <Card title={c.name}>
+                        <Image src={c.image} />
+                    </Card>
+                ))}
+            </div>
+        </>
     );
 }
