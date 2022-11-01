@@ -21,12 +21,13 @@ export default function Home() {
         getValues();
     }, []);
     console.log(data);
-    return (<div>
-{data.map((c) => (
-        <Card title={c.name}>
-            <Image src={c.image} preview={false} />
-        </Card>
-    ))}
-    </div>)
-    ;
+    return (
+        <div>
+            {data.map((c) => (
+                <Card title={c.name}>
+                    <Image src={c.image} />
+                </Card>
+            ))}
+        </div>
+    );
 }
