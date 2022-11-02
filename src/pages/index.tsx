@@ -14,10 +14,9 @@ export default function Home() {
             );
             const data = await res.json();
             if (data) {
-                message.success('loaded');
                 setData(data.results);
             } else {
-                message.error('could not load');
+                message.error('failed to load characters');
             }
         }
         getValues();
