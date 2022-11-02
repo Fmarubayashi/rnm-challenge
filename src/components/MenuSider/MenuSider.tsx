@@ -1,4 +1,4 @@
-import { HomeOutlined } from '@ant-design/icons';
+import { TeamOutlined } from '@ant-design/icons';
 import { Button, Divider, Menu } from 'antd';
 import * as React from 'react';
 import styles from './MenuSider.module.scss';
@@ -19,8 +19,8 @@ const AppMenu: React.FC = ({}) => {
                     <Button
                         className={styles.menuButton}
                         type="link"
-                        icon={<HomeOutlined />}
-                        onClick={() => console.log('clicked')}
+                        icon={<TeamOutlined />}
+                        href={'/'}
                     >
                         <span>Characters</span>
                     </Button>
