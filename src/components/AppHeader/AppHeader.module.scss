@@ -2,5 +2,24 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 16px auto;
+
+  .backArrow{
+    position: absolute;
+    left: 0;
+    margin: 16px 0px 16px 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 450px) {
+    .backArrow{
+      margin: 16px 0px 16px 20px;
+    }
+  }
 }
