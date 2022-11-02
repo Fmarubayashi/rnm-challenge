@@ -49,6 +49,6 @@ export default function Character() {
     }, []);
     console.log(character);
     console.log(location);
-    console.log(origin)
+    console.log(origin);
     return <span>{character?.name}</span>;
 }

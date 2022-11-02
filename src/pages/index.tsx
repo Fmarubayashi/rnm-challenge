@@ -22,8 +22,8 @@ export default function Home() {
         getValues();
     }, []);
     return (
-        <div className={styles.mainContainer    }>
-            <Search className={styles.searchBar}/>
+        <div className={styles.mainContainer}>
+            <Search className={styles.searchBar} />
             <Row gutter={8}>
                 {data.map((c) => (
                     <Col span={8}>

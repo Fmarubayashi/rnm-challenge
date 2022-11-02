@@ -9,7 +9,10 @@ interface ICharacterThumbnail {
 }
 const CharacterThumbnail: React.FC<ICharacterThumbnail> = ({ character }) => {
     return (
-        <Link className={styles.thumbnailContainer} href={`/characters/${character.id}`}>
+        <Link
+            className={styles.thumbnailContainer}
+            href={`/characters/${character.id}`}
+        >
             <Image
                 src={character.image}
                 className={styles.image}
