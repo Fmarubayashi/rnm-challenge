@@ -43,7 +43,7 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
                             gender and {''}
                             {character?.type.toLocaleLowerCase() ||
                                 'uknown'}{' '}
-                            type. Current status is
+                            type. Current status is {''}
                             {character?.status.toLocaleLowerCase() || 'uknown'}.
                         </span>
                     </Panel>

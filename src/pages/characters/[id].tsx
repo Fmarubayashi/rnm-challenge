@@ -1,19 +1,38 @@
 import { message } from 'antd';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import CharacterDetails from '../../components/CharacterDetailsCard/CharacterDetails';
-import {
-    ICharacter,
-    ICharacterLocation,
-} from '../../Utils/Utils';
+import CharacterDetails from '../../components/CharacterDetails/CharacterDetails';
+import { ICharacter, ICharacterLocation } from '../../Utils/Utils';
+import api from '../../services/api';
+
 export default function Character() {
-    const { query: { id }, isReady } = useRouter();
+    const {
+        query: { id },
+        isReady,
+    } = useRouter();
     const [character, setCharacter] = useState<ICharacter>();
     const [location, setLocation] = useState<ICharacterLocation>();
     const [origin, setOrigin] = useState<ICharacterLocation>();
     useEffect(() => {
         async function getCharacter() {
             if (isReady) {
+                try {
+                    const character = await api.getCharacter(String(id));
+                    if (!character) {
+                        throw Error;
+                    }
+                    setCharacter(character);
+                    const location = await getCharacterLocation(
+                        character.location.url
+                    );
+                    setLocation(location);
+                    const origin = await getCharacterOrigin(
+                        character.origin.url
+                    );
+                    setOrigin(origin);
+                } catch {
+                    message.error('failed to load character');
+                }
                 const res = await fetch(
                     `https://rickandmortyapi.com/api/character/${id}`
                 );
@@ -23,27 +42,22 @@ export default function Character() {
                     getCharacterLocation(charData?.location?.url);
                     getCharacterOrigin(charData?.origin?.url);
                 } else {
-                    message.error('failed to load character');
                 }
             }
         }
         async function getCharacterLocation(url: string) {
-            const res = await fetch(url);
-            const locationData = await res.json();
-            if (locationData) {
-                setLocation(locationData);
-            } else {
-                message.error('failed to load character location');
+            const location = await api.getLocation(url);
+            if (!location) {
+                throw Error;
             }
+            return location;
         }
         async function getCharacterOrigin(url: string) {
-            const res = await fetch(url);
-            const originData = await res.json();
-            if (originData) {
-                setOrigin(originData);
-            } else {
-                message.error('failed to load character origin');
+            const origin = await api.getLocation(url);
+            if (!origin) {
+                throw Error;
             }
+            return origin;
         }
         getCharacter();
     }, [id]);

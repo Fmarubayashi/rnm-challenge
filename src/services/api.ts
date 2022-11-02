@@ -20,12 +20,12 @@ const api = {
         return data;
     },
 
-    async getLocation(id: string) {
-        const res = await fetch(`${this.baseUrl}/locations/${id}`);
+    async getLocation(url: string) {
+        const res = await fetch(url);
         const data = await res.json();
 
         return data;
     },
 };
 
-export { api };
+export default api;

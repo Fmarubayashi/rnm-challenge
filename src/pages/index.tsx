@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import CharacterThumbnail from '../components/CharacterThumbnail/CharacterThumbnail';
 import { ICharacter } from '../Utils/Utils';
 import styles from './index.module.scss';
-import { api } from '../services/api';
+import api from '../services/api';
 
 export default function Home() {
     const [characters, setCharacters] = useState<ICharacter[]>([]);
@@ -15,9 +15,11 @@ export default function Home() {
         async function getValues() {
             try {
                 const query = new URLSearchParams({
-                    page: String(page)
-                })
-                const { characters, next } = await api.getCharacters(query.toString());
+                    page: String(page),
+                });
+                const { characters, next } = await api.getCharacters(
+                    query.toString()
+                );
                 setCharacters(characters);
                 if (next) {
                     setPage(page + 1);
@@ -38,7 +40,7 @@ export default function Home() {
             <Search className={styles.searchBar} />
 
             <div className={styles.grid}>
-                {characters.map(character => (
+                {characters.map((character) => (
                     <CharacterThumbnail character={character} />
                 ))}
             </div>
