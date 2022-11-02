@@ -1,7 +1,8 @@
-import { message } from 'antd';
-import { GetStaticPaths } from 'next';
+import { Card, message, Image } from 'antd';
+import { Header } from 'antd/lib/layout/layout';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import CharacterDetailsCard from '../../components/CharacterDetailsCard/CharacterDetailsCard';
 import {
     ICharacter,
     ICharacterLocation,
@@ -20,7 +21,7 @@ export default function Character() {
             );
             const charData = await res.json();
             if (charData) {
-                setCharacter(charData);
+                setCharacter((prev) => prev ?? charData);
                 getCharacterLocation(charData?.location?.url);
                 getCharacterOrigin(charData?.origin?.url);
             } else {
@@ -46,9 +47,13 @@ export default function Character() {
             }
         }
         getCharacter();
-    }, []);
-    console.log(character);
-    console.log(location);
-    console.log(origin);
-    return <span>{character?.name}</span>;
+    }, [id]);
+
+    return (
+        <CharacterDetailsCard
+            character={character as ICharacter}
+            location={location as ICharacterLocation}
+            origin={origin as ICharacterOrigin}
+        />
+    );
 }
