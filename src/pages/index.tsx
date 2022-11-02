@@ -1,8 +1,12 @@
-import { Card, Image, message } from 'antd';
+import { Card, Col, Image, message, Row } from 'antd';
+import Search from 'antd/lib/input/Search';
 import { useEffect, useState } from 'react';
+import CharacterThumbnail from '../components/CharacterThumbnail/CharacterThumbnail';
+import { ICharacter } from '../Utils/Utils';
+import styles from './index.module.scss';
 
 export default function Home() {
-    const [data, setData] = useState<any>([]);
+    const [data, setData] = useState<ICharacter[]>([]);
     useEffect(() => {
         async function getValues() {
             const res = await fetch(
@@ -18,16 +22,16 @@ export default function Home() {
         }
         getValues();
     }, []);
-    console.log(data);
     return (
-        <>
-            <div>
+        <div className={styles.mainContainer    }>
+            <Search className={styles.searchBar}/>
+            <Row gutter={8}>
                 {data.map((c) => (
-                    <Card title={c.name}>
-                        <Image src={c.image} />
-                    </Card>
+                    <Col span={8}>
+                        <CharacterThumbnail character={c} />
+                    </Col>
                 ))}
-            </div>
-        </>
+            </Row>
+        </div>
     );
 }

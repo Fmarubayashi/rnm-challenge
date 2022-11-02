@@ -1,0 +1,10 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .searchBar {
+        max-width: 50vh;
+        margin: 1vh 0 3vh 0;
+    }
+}
