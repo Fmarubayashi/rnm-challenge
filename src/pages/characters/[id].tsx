@@ -22,8 +22,8 @@ export default function Character() {
             const charData = await res.json();
             if (charData) {
                 setCharacter((prev) => prev ?? charData);
-                getCharacterLocation(charData?.location?.url);
-                getCharacterOrigin(charData?.origin?.url);
+                getCharacterLocation(character?.location?.url ?? charData?.location?.url);
+                getCharacterOrigin(character?.origin?.url ??charData?.origin?.url);
             } else {
                 message.error('failed to load character');
             }

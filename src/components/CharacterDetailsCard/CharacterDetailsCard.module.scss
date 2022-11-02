@@ -1,0 +1,19 @@
+.characterCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .cardCol {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .subText {
+        font-weight: bold;
+    }
+
+    span {
+        font-size: medium;
+    }
+}
