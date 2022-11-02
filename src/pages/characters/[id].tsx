@@ -1,18 +1,16 @@
-import { Card, message, Image } from 'antd';
-import { Header } from 'antd/lib/layout/layout';
+import { message } from 'antd';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import CharacterDetailsCard from '../../components/CharacterDetailsCard/CharacterDetailsCard';
+import CharacterDetails from '../../components/CharacterDetailsCard/CharacterDetails';
 import {
     ICharacter,
     ICharacterLocation,
-    ICharacterOrigin,
 } from '../../Utils/Utils';
 export default function Character() {
     const { query: { id }, isReady } = useRouter();
     const [character, setCharacter] = useState<ICharacter>();
     const [location, setLocation] = useState<ICharacterLocation>();
-    const [origin, setOrigin] = useState<ICharacterOrigin>();
+    const [origin, setOrigin] = useState<ICharacterLocation>();
     useEffect(() => {
         async function getCharacter() {
             if (isReady) {
@@ -51,10 +49,10 @@ export default function Character() {
     }, [id]);
 
     return (
-        <CharacterDetailsCard
+        <CharacterDetails
             character={character as ICharacter}
             location={location as ICharacterLocation}
-            origin={origin as ICharacterOrigin}
+            origin={origin as ICharacterLocation}
         />
     );
 }

@@ -5,20 +5,20 @@ export interface ICharacter {
     species: string;
     type: string;
     gender: string;
-    origin: ICharacterOrigin;
-    location: ICharacterLocation;
+    origin: Partial<ICharacterLocation>;
+    location: Partial<ICharacterLocation>;
     image: string;
     episode: string[];
     url: string;
     created: string;
 }
 
-export interface ICharacterOrigin {
-    name: string;
-    url: string;
-}
-
 export interface ICharacterLocation {
+    id: string;
     name: string;
+    type: string;
+    dimension: string;
+    residents: string[];
     url: string;
+    created: string;
 }

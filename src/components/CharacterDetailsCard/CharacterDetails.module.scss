@@ -1,0 +1,38 @@
+.characterDetailsRow {
+    margin-top: 50px;
+
+    .characterImage {
+        border-radius: 16px;
+        width: 300px;
+    }
+
+    .collapseContainer {
+        width: 250px;
+        height: 200px;
+        .detailsCollapse {
+            font-size: large;
+    
+            :global {
+                .ant-collapse-header {
+                    color: white;
+                }
+                .ant-collapse-content {
+                    color: white;
+                }
+            }
+        }
+    }
+
+
+
+    .panel {
+        color: white;
+    }
+
+    @media (max-width: 600px) {
+        .characterImage {
+            width: 200px;
+        }
+    }
+}
+
