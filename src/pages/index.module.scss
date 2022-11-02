@@ -7,4 +7,17 @@
         max-width: 50vh;
         margin: 1vh 0 3vh 0;
     }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 16px;
+        max-width: 800px;
+    }
+
+    @media (max-width: 750px) {
+        .grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
 }

@@ -9,23 +9,24 @@ import {
     ICharacterOrigin,
 } from '../../Utils/Utils';
 export default function Character() {
-    const router = useRouter();
-    const { id } = router.query;
+    const { query: { id }, isReady } = useRouter();
     const [character, setCharacter] = useState<ICharacter>();
     const [location, setLocation] = useState<ICharacterLocation>();
     const [origin, setOrigin] = useState<ICharacterOrigin>();
     useEffect(() => {
         async function getCharacter() {
-            const res = await fetch(
-                `https://rickandmortyapi.com/api/character/${id}`
-            );
-            const charData = await res.json();
-            if (charData) {
-                setCharacter((prev) => prev ?? charData);
-                getCharacterLocation(character?.location?.url ?? charData?.location?.url);
-                getCharacterOrigin(character?.origin?.url ??charData?.origin?.url);
-            } else {
-                message.error('failed to load character');
+            if (isReady) {
+                const res = await fetch(
+                    `https://rickandmortyapi.com/api/character/${id}`
+                );
+                const charData = await res.json();
+                if (charData) {
+                    setCharacter((prev) => prev ?? charData);
+                    getCharacterLocation(charData?.location?.url);
+                    getCharacterOrigin(charData?.origin?.url);
+                } else {
+                    message.error('failed to load character');
+                }
             }
         }
         async function getCharacterLocation(url: string) {

@@ -1,16 +1,12 @@
-import { Layout } from 'antd';
-import * as React from 'react';
+import Image from 'next/image'
 import styles from './AppHeader.module.scss';
+import Logo from '../../../public/logo.png';
 
-const { Header } = Layout;
-
-const AppHeader: React.FC = ({}) => {
+const AppHeader: React.FC = ({ }) => {
     return (
-        <Header id="header" className={styles.appHeader}>
-            <div className={styles.leftAlign}>
-                <h1>{'Rick and Morty Characters'}</h1>
-            </div>
-        </Header>
+        <header className={styles.header}>
+            <Image src={Logo} alt="Logo" width={300} />
+        </header>
     );
 };
 
