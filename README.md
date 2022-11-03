@@ -37,4 +37,3 @@ The WebApp is responsive and will change designs based on screensize
 - Typescript
 - Rick and Morty API
 - AntDesign (AntD)
-- IntersectionObserver API
