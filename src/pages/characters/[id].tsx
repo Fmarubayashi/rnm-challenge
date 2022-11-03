@@ -47,7 +47,7 @@ export default function Character() {
         }
         async function getCharacterOrigin(url: string) {
             if (!url) {
-                return {};
+                return undefined;
             }
             const origin = await api.getLocation(url);
             if (!origin) {

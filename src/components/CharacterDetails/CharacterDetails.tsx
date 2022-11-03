@@ -17,7 +17,7 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
 }) => {
     return (
         <Row
-            justify='space-evenly'
+            justify="space-evenly"
             align="middle"
             className={styles.characterDetailsRow}
             gutter={10}
@@ -68,9 +68,9 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
                             <span>
                                 The location of origin of {character?.name} is{' '}
                                 {''}
-                                {origin?.name}, in the
+                                {origin?.name || 'uknown'}, in the
                                 {origin?.dimension || 'uknown dimension'}. {''}
-                                {origin.residents.length
+                                {origin?.residents?.length
                                     ? ` It currently has ${origin.residents.length} residents.`
                                     : ''}
                             </span>
