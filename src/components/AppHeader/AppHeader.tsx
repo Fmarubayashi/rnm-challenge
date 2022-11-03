@@ -10,7 +10,7 @@ const AppHeader: React.FC = ({}) => {
                 <ArrowLeftOutlined />
             </Link>
 
-            <Image src={Logo} alt="Logo" width={300} className={styles.logo} />
+            <Image src={Logo} alt="Logo" width={300} className={styles.logo} priority />
         </header>
     );
 };
