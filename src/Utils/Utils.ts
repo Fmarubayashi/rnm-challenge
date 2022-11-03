@@ -22,3 +22,14 @@ export interface ICharacterLocation {
     url: string;
     created: string;
 }
+
+export const getPlural = (
+    field: string,
+    plural: string,
+    value: number,
+    showValue = true
+) => {
+    return value > 1 || value === 0
+        ? `${showValue ? value : ''} ${plural}`
+        : `${showValue ? value : ''} ${field}`;
+};

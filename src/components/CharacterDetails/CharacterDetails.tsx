@@ -1,6 +1,6 @@
 import { Card, Col, Collapse, Image, Row } from 'antd';
 import React from 'react';
-import { ICharacter, ICharacterLocation } from '../../Utils/Utils';
+import { getPlural, ICharacter, ICharacterLocation } from '../../Utils/Utils';
 import styles from './CharacterDetails.module.scss';
 const { Panel } = Collapse;
 
@@ -71,7 +71,12 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
                                 {origin?.name || 'uknown'}, in the
                                 {origin?.dimension || 'uknown dimension'}. {''}
                                 {origin?.residents?.length
-                                    ? ` It currently has ${origin.residents.length} residents.`
+                                    ? ` It currently has ${getPlural(
+                                          'resident',
+                                          'residents',
+                                          origin?.residents?.length,
+                                          true
+                                      )}.`
                                     : ''}
                             </span>
                         ) : (
@@ -81,7 +86,13 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
                     <Panel header={'Episodes'} key={'4'}>
                         <span>
                             {character?.name} has been in{' '}
-                            {character?.episode.length} episodes as of today.{' '}
+                            {getPlural(
+                                'episode',
+                                'episodes',
+                                character?.episode?.length,
+                                true
+                            )}{' '}
+                            as of today.{' '}
                         </span>
                     </Panel>
                 </Collapse>

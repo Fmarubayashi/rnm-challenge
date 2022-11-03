@@ -12,7 +12,7 @@ export default function Home() {
     const [characters, setCharacters] = useState<ICharacter[]>([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(true);
-    const skeleton = useRef(null);
+    const spinner = useRef(null);
     const { isIntersecting, observer } = useIntersectionObserver();
 
     async function getCharacters() {
@@ -34,10 +34,10 @@ export default function Home() {
     }
 
     useEffect(() => {
-        if (skeleton.current && observer) {
-            observer.observe(skeleton.current);
+        if (spinner.current && observer) {
+            observer.observe(spinner.current);
         }
-    }, [skeleton, observer]);
+    }, [spinner, observer]);
 
     useEffect(() => {
         if (isIntersecting) {
@@ -55,7 +55,7 @@ export default function Home() {
                 ))}
             </div>
             {loading && (
-                <div ref={skeleton} style={{ margin: '16px' }}>
+                <div ref={spinner} style={{ margin: '16px' }}>
                     <Spin indicator={<LoadingOutlined style={{ fontSize: 36, color: 'white' }} spin />} />
                 </div>
             )}
