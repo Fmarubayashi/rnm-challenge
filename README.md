@@ -4,6 +4,7 @@
 <tr>
 <td>
     Coding challenge that uses the Rick and Morty API: https://rickandmortyapi.com/documentation/#rest.
+    The initial design can be found in figma: https://www.figma.com/file/6R53stRBtl8ZYS6HOMpnzb/R%26M-design?node-id=22%3A1604.
     It consists of a homepage that lists all the characters in the show using a grid with 3 columns for desktop pages and 2 columns for mobile pages.
     There is a search feature that will filter the characters.
     Upon clicking on the character thumbnail, you will be redirected to the character page that shares infomration about said character. All information is give through the API (so if anything is wrong or isn't canon ... it's not my fault).
