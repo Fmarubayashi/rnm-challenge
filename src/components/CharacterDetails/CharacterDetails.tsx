@@ -16,19 +16,12 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
     origin,
 }) => {
     return (
-        <Row
-            justify="center"
-            align="middle"
-            className={styles.characterDetailsRow}
-            gutter={20}
-        >
-            <Col>
-                <Row>
-                    <Image
-                        src={character?.image}
-                        className={styles.characterImage}
-                    />
-                </Row>
+        <div className={styles.characterDetailsContainer}>
+            <Col className={styles.imageContainer}>
+                <Image
+                    src={character?.image}
+                    className={styles.characterImage}
+                />
             </Col>
             <Col className={styles.collapseContainer}>
                 <Collapse ghost className={styles.detailsCollapse}>
@@ -97,7 +90,7 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
                     </Panel>
                 </Collapse>
             </Col>
-        </Row>
+        </div>
     );
 };
 

@@ -1,14 +1,22 @@
-.characterDetailsRow {  
-    margin-top: 50px;
+.characterDetailsContainer {  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px auto;
+    background-color: rgba(0,0,0,0.3);
+    max-width: 800px;
+    padding: 40px 0;
+    border-radius: 16px;
+
 
     .characterImage {
         border-radius: 16px;
         width: 300px;
+        margin: auto 30px;
     }
 
     .collapseContainer {
         width: 400px;
-        height: 200px;
         .detailsCollapse {
             font-size: 25px;
 
@@ -29,13 +37,21 @@
     .panel {
         color: white;
     }
+}
 
-    @media (max-width: 700px) {
+@media (max-width: 700px) {
+    .characterDetailsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 350px;
         .characterImage {
             width: 200px;
         }
         .collapseContainer {
-            width: 250px;
+            width: 300px;
         }
     }
+   
 }

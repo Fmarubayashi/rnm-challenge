@@ -2,7 +2,9 @@
 body {
   background-color: #312E81 !important;
   font-family: 'Quicksand', sans-serif;
-  background: url('../../public/background.png') center;
+  background-image:  url('../../public/rnm.svg'), url('../../public/spaceship.svg'), url('../../public/galaxy.svg');
+  background-position:  left bottom, right top, center;
+  background-size: 25%, 25%, 100%;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
