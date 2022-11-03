@@ -45,10 +45,10 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
                             <span>
                                 The last seen location of {character?.name} is{' '}
                                 {''}
-                                {location?.name}, in the{' '}
+                                {location?.name || 'uknown'}, in the{' '}
                                 {location?.dimension || 'uknown dimension'}.{' '}
-                                {location.residents.length
-                                    ? ` It currently has ${location.residents.length} residents.`
+                                {location?.residents?.length
+                                    ? ` It currently has ${location?.residents?.length} residents.`
                                     : ''}
                             </span>
                         ) : (

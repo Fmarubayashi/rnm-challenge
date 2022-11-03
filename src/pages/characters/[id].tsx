@@ -23,11 +23,11 @@ export default function Character() {
                     }
                     setCharacter(character);
                     const location = await getCharacterLocation(
-                        character.location.url
+                        character?.location?.url
                     );
                     setLocation(location);
                     const origin = await getCharacterOrigin(
-                        character.origin.url
+                        character?.origin?.url
                     );
                     setOrigin(origin);
                 } catch {
