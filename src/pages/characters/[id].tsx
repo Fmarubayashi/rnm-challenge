@@ -33,19 +33,12 @@ export default function Character() {
                 } catch {
                     message.error('failed to load character');
                 }
-                const res = await fetch(
-                    `https://rickandmortyapi.com/api/character/${id}`
-                );
-                const charData = await res.json();
-                if (charData) {
-                    setCharacter((prev) => prev ?? charData);
-                    getCharacterLocation(charData?.location?.url);
-                    getCharacterOrigin(charData?.origin?.url);
-                } else {
-                }
             }
         }
         async function getCharacterLocation(url: string) {
+            if (!url) {
+                return {};
+            }
             const location = await api.getLocation(url);
             if (!location) {
                 throw Error;
@@ -53,6 +46,9 @@ export default function Character() {
             return location;
         }
         async function getCharacterOrigin(url: string) {
+            if (!url) {
+                return {};
+            }
             const origin = await api.getLocation(url);
             if (!origin) {
                 throw Error;

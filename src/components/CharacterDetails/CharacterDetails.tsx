@@ -66,7 +66,7 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
                     <Panel header={'Origin'} key={'3'}>
                         {origin ? (
                             <span>
-                                The location of origin of ${character?.name} is{' '}
+                                The location of origin of {character?.name} is{' '}
                                 {''}
                                 {origin?.name}, in the
                                 {origin?.dimension || 'uknown dimension'}. {''}
