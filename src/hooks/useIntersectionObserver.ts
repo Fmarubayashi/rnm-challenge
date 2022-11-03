@@ -19,7 +19,7 @@ function useIntersectionObserver() {
         return () => observer?.disconnect();
     }, []);
 
-    return { isIntersecting, observer }
+    return { isIntersecting, observer };
 }
 
-export { useIntersectionObserver }
+export { useIntersectionObserver };

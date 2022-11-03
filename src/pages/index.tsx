@@ -18,12 +18,17 @@ export default function Home() {
     async function getCharacters() {
         try {
             const query = new URLSearchParams({
-                page: String(page)
-            })
-            const { characters, next } = await api.getCharacters(query.toString());
-            setCharacters((previousCharacters) => [...previousCharacters, ...characters]);
+                page: String(page),
+            });
+            const { characters, next } = await api.getCharacters(
+                query.toString()
+            );
+            setCharacters((previousCharacters) => [
+                ...previousCharacters,
+                ...characters,
+            ]);
             if (next) {
-                setPage(page => page + 1);
+                setPage((page) => page + 1);
                 setLoading(true);
             } else {
                 setLoading(false);
@@ -50,13 +55,23 @@ export default function Home() {
             <Search className={styles.searchBar} />
 
             <div className={styles.grid}>
-                {characters.map(character => (
-                    <CharacterThumbnail key={character.id} character={character} />
+                {characters.map((character) => (
+                    <CharacterThumbnail
+                        key={character.id}
+                        character={character}
+                    />
                 ))}
             </div>
             {loading && (
                 <div ref={spinner} style={{ margin: '16px' }}>
-                    <Spin indicator={<LoadingOutlined style={{ fontSize: 36, color: 'white' }} spin />} />
+                    <Spin
+                        indicator={
+                            <LoadingOutlined
+                                style={{ fontSize: 36, color: 'white' }}
+                                spin
+                            />
+                        }
+                    />
                 </div>
             )}
         </div>
