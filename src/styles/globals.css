@@ -8,3 +8,23 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
+@media (max-width: 700px) {
+  body {
+    background-image:  url('../../public/rnm700px.svg'), url('../../public/galaxy.svg');
+    background-position:  right bottom, center;
+    background-size: 40%, 120%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 450px) {
+  body {
+    background-image: url('../../public/galaxy.svg');
+    background-position: center;
+    background-size: 160%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+}
