@@ -45,9 +45,8 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
                             <span>
                                 The last seen location of {character?.name} is{' '}
                                 {''}
-                                {location?.name}, in the {''}
-                                {location?.dimension ||
-                                    'uknown dimension'}. {''}
+                                {location?.name}, in the{' '}
+                                {location?.dimension || 'uknown dimension'}.{' '}
                                 {location.residents.length
                                     ? ` It currently has ${location.residents.length} residents.`
                                     : ''}
@@ -61,8 +60,8 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
                             <span>
                                 The location of origin of {character?.name} is{' '}
                                 {''}
-                                {origin?.name || 'uknown'}, in the
-                                {origin?.dimension || 'uknown dimension'}. {''}
+                                {origin?.name || 'uknown'}, in the{' '}
+                                {origin?.dimension || 'uknown dimension'}.{' '}
                                 {origin?.residents?.length
                                     ? ` It currently has ${getPlural(
                                           'resident',
