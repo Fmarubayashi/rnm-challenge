@@ -14,16 +14,18 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
     const spinner = useRef(null);
     const { isIntersecting, observer } = useIntersectionObserver();
+    const [search, setSearch] = useState('');
 
-    async function getCharacters() {
+    async function getCharacters(page:number, search: string, reset:boolean) {
         try {
             const query = new URLSearchParams({
                 page: String(page),
+                ...(search && { name: search }),
             });
             const { characters, next } = await api.getCharacters(
                 query.toString()
             );
-            setCharacters((previousCharacters) => [
+            setCharacters((previousCharacters) => reset ? characters : [
                 ...previousCharacters,
                 ...characters,
             ]);
@@ -35,7 +37,15 @@ export default function Home() {
             }
         } catch {
             message.error('Failed to load characters');
+            setLoading(false);
         }
+    }
+
+    async function searchCharacters(search: string) {
+        setSearch(search);
+        setPage(1);
+        setLoading(true);
+        getCharacters(1, search, true);
     }
 
     useEffect(() => {
@@ -45,14 +55,14 @@ export default function Home() {
     }, [spinner, observer]);
 
     useEffect(() => {
-        if (isIntersecting) {
-            getCharacters();
+        if (isIntersecting && loading) {
+            getCharacters(page, search, false);
         }
     }, [isIntersecting]);
 
     return (
         <div className={styles.mainContainer}>
-            <Search className={styles.searchBar} />
+            <Search className={styles.searchBar} onSearch={searchCharacters} />
 
             <div className={styles.grid}>
                 {characters.map((character) => (
@@ -62,8 +72,8 @@ export default function Home() {
                     />
                 ))}
             </div>
-            {loading && (
-                <div ref={spinner} style={{ margin: '16px' }}>
+            <div ref={spinner} style={{ margin: '16px' }}>
+                {loading && (
                     <Spin
                         indicator={
                             <LoadingOutlined
@@ -72,8 +82,8 @@ export default function Home() {
                             />
                         }
                     />
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 }
