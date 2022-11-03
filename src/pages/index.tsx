@@ -16,7 +16,7 @@ export default function Home() {
     const { isIntersecting, observer } = useIntersectionObserver();
     const [search, setSearch] = useState('');
 
-    async function getCharacters(page:number, search: string, reset:boolean) {
+    async function getCharacters(page: number, search: string, reset: boolean) {
         try {
             const query = new URLSearchParams({
                 page: String(page),
@@ -25,10 +25,9 @@ export default function Home() {
             const { characters, next } = await api.getCharacters(
                 query.toString()
             );
-            setCharacters((previousCharacters) => reset ? characters : [
-                ...previousCharacters,
-                ...characters,
-            ]);
+            setCharacters((previousCharacters) =>
+                reset ? characters : [...previousCharacters, ...characters]
+            );
             if (next) {
                 setPage((page) => page + 1);
                 setLoading(true);
