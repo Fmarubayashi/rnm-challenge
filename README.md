@@ -1,4 +1,4 @@
-# ![WebApp]('../../public/homescreen.png')
+# ![WebApp](public/homescreen.png?raw=true)
 # WebApp
 <table>
 <tr>
@@ -21,15 +21,15 @@ Here is a working live demo :  https://rnm-challenge-fmarubayashi.vercel.app/
 ### Landing Page
 Search and infinite loading are currently working!
 
-![]('../../public/homescreen.png')
+![](public/homescreen.png?raw=true)
 
 ### Character Page
-![]('../../public/characterdetails.png')
+![](public/characterdetails.png?raw=true)
 
 ## Mobile support
 The WebApp is responsive and will change designs based on screensize
 
-![]('../../public/mobile.png')
+![](public/mobile.png?raw=true)
 
 ## Built with 
 
