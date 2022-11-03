@@ -17,10 +17,10 @@ const CharacterDetails: React.FC<ICharacterDetails> = ({
 }) => {
     return (
         <Row
-            justify="space-evenly"
+            justify="center"
             align="middle"
             className={styles.characterDetailsRow}
-            gutter={10}
+            gutter={20}
         >
             <Col>
                 <Row>

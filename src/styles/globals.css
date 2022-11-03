@@ -1,4 +1,9 @@
+
 body {
-  background-color: #312E81;
+  background-color: #312E81 !important;
   font-family: 'Quicksand', sans-serif;
+  background: url('../../public/background.png') center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }

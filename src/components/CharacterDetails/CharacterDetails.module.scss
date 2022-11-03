@@ -1,4 +1,4 @@
-.characterDetailsRow {
+.characterDetailsRow {  
     margin-top: 50px;
 
     .characterImage {
@@ -7,13 +7,14 @@
     }
 
     .collapseContainer {
-        width: 250px;
+        width: 400px;
         height: 200px;
         .detailsCollapse {
             font-size: large;
-    
+
             :global {
                 .ant-collapse-header {
+                    font-weight: bold;
                     color: white;
                 }
                 .ant-collapse-content {
@@ -29,10 +30,12 @@
         color: white;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
         .characterImage {
             width: 200px;
         }
+        .collapseContainer {
+            width: 250px;
+        }
     }
 }
-
