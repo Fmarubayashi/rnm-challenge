@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ![WebApp]('../../public/homescreen.png')
+# WebApp
+<table>
+<tr>
+<td>
+    Coding challenge that uses the Rick and Morty API: https://rickandmortyapi.com/documentation/#rest.
+    It consists of a homepage that lists all the characters in the show using a grid with 3 columns for desktop pages and 2 columns for mobile pages.
+    There is a search feature that will filter the characters.
+    Upon clicking on the character thumbnail, you will be redirected to the character page that shares infomration about said character. All information is give through the API (so if anything is wrong or isn't canon ... it's not my fault).
+</td>
+</tr>
+</table>
 
-## Getting Started
 
-First, run the development server:
+## Demo
+Here is a working live demo :  https://rnm-challenge-fmarubayashi.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Site
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Landing Page
+Search and infinite loading are currently working!
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+![]('../../public/homescreen.png')
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Character Page
+![]('../../public/characterdetails.png')
 
-## Learn More
+## Mobile support
+The WebApp is responsive and will change designs based on screensize
 
-To learn more about Next.js, take a look at the following resources:
+![]('../../public/mobile.png')
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Built with 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- NextJS
+- Typescript
+- Rick and Morty API
+- AntDesign (AntD)
+- IntersectionObserver API
