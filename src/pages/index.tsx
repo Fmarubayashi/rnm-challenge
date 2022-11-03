@@ -71,12 +71,12 @@ export default function Home() {
                     />
                 ))}
             </div>
-            <div ref={spinner} style={{ margin: '16px' }}>
+            <div ref={spinner} className={styles.spinnerContainer}>
                 {loading && (
                     <Spin
                         indicator={
                             <LoadingOutlined
-                                style={{ fontSize: 36, color: 'white' }}
+                                className={styles.spinnerLoad}
                                 spin
                             />
                         }

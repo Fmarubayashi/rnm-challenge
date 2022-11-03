@@ -17,6 +17,15 @@
         max-width: 800px;
     }
 
+    .spinnerContainer {
+        margin: '16px';
+
+        .spinnerLoad {
+            font-size: 36px;
+            color: 'white';
+        }
+    }
+
     @media (max-width: 750px) {
         .grid {
             grid-template-columns: 1fr 1fr;
